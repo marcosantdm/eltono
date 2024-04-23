@@ -41,18 +41,23 @@ class VocalistaController extends Controller
     public function store(Request $request)
     {
         $regras = [
-            'nome_vocalista' => 'required|string|min:5|max:30',
+            'nome_vocalista' => 'required|string|min:4|max:30',
             'nome_louvor' => 'required|string|min:5|max:40',
-            'nome_versao_louvor' => 'required|string|max:150',
+            'nome_versao_louvor' => ['required', 'regex:/^((?:https?:\/\/)?(www\.)?youtube\.com\/(?:embed\/|v\/|watch\?v\=))([\w-]+)(?:\S+)?$/'],
             'tonalidade' => 'required'
         ];
 
         $feedback = [
             'required' => 'O campo :attribute deve ser preenchido',
-            'nome_vocalista.min' => 'O campo nome vocalista deve ter no mínimo 5 caracteres',
-            'nome_vocalista.max' => 'O campo nome vocalista deve ter no máximo 30 caracteres',
-            'nome_louvor.min' => 'O campo nome louvor deve ter no mínimo 35 caracteres',
+
+            'nome_vocalista.min' => 'O nome precisa ser de no mínimo 4 caracteres',
+            'nome_vocalista.max' => 'Máximo de 30 caracteres, por favor diminua a quantidade de caracteres',
+
+            'nome_louvor.min' => 'Mínimo de 35 caracteres',
             'nome_louvor.max' => 'O campo nome louvor deve ter no máximo 40 caracteres',
+
+            'nome_versao_louvor' => 'Precisa ser um link válido do youtube',
+
             'nome_versao_louvor.max' => 'O campo nome versão louvor deve ter no máximo 150 caracteres'
         ];
 

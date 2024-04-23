@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListaDoDiaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VocalistaController;
 
@@ -13,7 +14,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [VocalistaController::class, 'index'])->name('dashboard');
-
+  
     Route::resource('vocalistas', VocalistaController::class);
 
 });
