@@ -10,7 +10,7 @@
 <?php $component->withAttributes([]); ?>
      <?php $__env->slot('header', null, []); ?> 
         <div class="flex justify-between">
-            <?php echo e(__('EDITE AS INFORMAÇÕES')); ?> <button><a href="<?php echo e(route('vocalistas.index')); ?>">Voltar a
+            <?php echo e(__('ÁREA DE EDIÇÃO')); ?> <button><a href="<?php echo e(route('vocalistas.index')); ?>">Voltar a
                     Listagem</a></button>
         </div>
      <?php $__env->endSlot(); ?>

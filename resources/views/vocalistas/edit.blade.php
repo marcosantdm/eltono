@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between">
-            {{ __('EDITE AS INFORMAÇÕES') }} <button><a href="{{ route('vocalistas.index') }}">Voltar a
+            {{ __('ÁREA DE EDIÇÃO') }} <button><a href="{{ route('vocalistas.index') }}">Voltar a
                     Listagem</a></button>
         </div>
     </x-slot>

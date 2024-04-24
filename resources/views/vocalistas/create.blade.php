@@ -17,7 +17,7 @@
 
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="text-center pt-3.5 text-xl font-bold ">
-                    {{ __('AREA DE CADASTRO') }}
+                    {{ __('ÁREA DE CADASTRO') }}
                 </div>
 
                 <form action="{{ route('vocalistas.store') }}" method="POST" class="flex flex-col p-36">
@@ -55,7 +55,7 @@
                             class="block py-2.5 px-3 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" " required />
                         <label for="nome_versao_louvor"
-                            class="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-focus:scale-75 peer-focus:-translate-y-10 "><i class="fa fa-youtube-play text-center" style="font-size:18px; color:red"></i> Coloque o link do video aqui</label>
+                            class="peer-focus:font-medium absolute text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-focus:scale-75 peer-focus:-translate-y-10 "><i class="fa fa-youtube-play text-center" style="font-size:18px; color:red"></i> Exemplo de link : https://www.youtube.com/embed/id_do_video</label>
                         <span class="text-red-500 font-medium">
                             {{ $errors->has('nome_versao_louvor') ? $errors->first('nome_versao_louvor') : '' }}
                         </span>
