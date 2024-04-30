@@ -48,7 +48,7 @@ $__split = function ($name, $params = []) {
 };
 [$__name, $__params] = $__split('navigation-menu');
 
-$__html = app('livewire')->mount($__name, $__params, 'lw-930984060-0', $__slots ?? [], get_defined_vars());
+$__html = app('livewire')->mount($__name, $__params, 'lw-2557897943-0', $__slots ?? [], get_defined_vars());
 
 echo $__html;
 
@@ -82,4 +82,4 @@ if (isset($__slots)) unset($__slots);
 
     </body>
 </html>
-<?php /**PATH C:\Users\esley.santana\Desktop\eltono\resources\views/layouts/app.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/leal/code/eltono/resources/views/layouts/app.blade.php ENDPATH**/ ?>

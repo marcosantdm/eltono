@@ -221,7 +221,14 @@ unset($__sessionArgs); ?>
 <?php unset($__componentOriginald0f1fd2689e4bb7060122a5b91fe8561); ?>
 <?php endif; ?>
 
-                
+                <?php if(Route::has('register')): ?>
+                                        <a
+                                            href="<?php echo e(route('register')); ?>"
+                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        >
+                                            Register
+                                        </a>
+                                    <?php endif; ?>
 
 
             </div>
@@ -246,4 +253,4 @@ unset($__sessionArgs); ?>
 <?php $component = $__componentOriginal69dc84650370d1d4dc1b42d016d7226b; ?>
 <?php unset($__componentOriginal69dc84650370d1d4dc1b42d016d7226b); ?>
 <?php endif; ?>
-<?php /**PATH C:\Users\esley.santana\Desktop\eltono\resources\views/index.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/leal/code/eltono/resources/views/index.blade.php ENDPATH**/ ?>

@@ -458,4 +458,4 @@
         </div>
     </div>
 </nav>
-<?php /**PATH C:\Users\esley.santana\Desktop\eltono\resources\views/navigation-menu.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/leal/code/eltono/resources/views/navigation-menu.blade.php ENDPATH**/ ?>

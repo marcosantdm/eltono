@@ -28,4 +28,4 @@
 
     </body>
 </html>
-<?php /**PATH C:\Users\esley.santana\Desktop\eltono\resources\views/layouts/guest.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/leal/code/eltono/resources/views/layouts/guest.blade.php ENDPATH**/ ?>

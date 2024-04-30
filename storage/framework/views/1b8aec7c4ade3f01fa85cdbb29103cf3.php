@@ -22,4 +22,4 @@ $classes = ($active ?? false)
     <?php echo e($slot); ?>
 
 </a>
-<?php /**PATH C:\Users\esley.santana\Desktop\eltono\resources\views/components/responsive-nav-link.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/leal/code/eltono/resources/views/components/responsive-nav-link.blade.php ENDPATH**/ ?>

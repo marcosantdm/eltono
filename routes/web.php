@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\VocalistaController;
 
 Route::get('/', function () {
@@ -15,6 +17,8 @@ Route::middleware([
     Route::get('/dashboard', [VocalistaController::class, 'index'])->name('dashboard');
 
     Route::resource('vocalistas', VocalistaController::class);
+
+    Route::get('gerar-pdf', [PdfController::class, 'gerarPdf'])->name('gerar-pdf');
 
 });
 

@@ -16,4 +16,4 @@
     <?php echo e($value ?? $slot); ?>
 
 </label>
-<?php /**PATH C:\Users\esley.santana\Desktop\eltono\resources\views/components/label.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/leal/code/eltono/resources/views/components/label.blade.php ENDPATH**/ ?>

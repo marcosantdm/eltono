@@ -1,8 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex justify-between">
-            {{ __('ÁREA DE EDIÇÃO') }} <button><a href="{{ route('vocalistas.index') }}">Voltar a
-                    Listagem</a></button>
+        <div class="flex justify-between dark:text-white">
+            {{ __('ÁREA DE EDIÇÃO') }} <button
+            class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+            <span
+                class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                <a href="{{ route('vocalistas.index') }}">VOLTAR A LOUVORES CADASTRADOS</a>
+        </button>
         </div>
     </x-slot>
 
@@ -14,18 +18,18 @@
                     @csrf
                     @method('PUT')
 
-                    <label class="text-indigo-950 m-4" for="nome_vocalista">Vocalista</label>
+                    <label class="text-indigo-950 m-4 dark:text-white text-lg" for="nome_vocalista">Vocalista</label>
                     <input type="text" name="nome_vocalista"
                         value="{{ old('nome_vocalista', $vocalista->nome_vocalista) }}">
 
-                    <label class="text-indigo-950 m-4" for="nome_louvor">Louvor</label>
+                    <label class="text-indigo-950 m-4 dark:text-white text-lg" for="nome_louvor">Louvor</label>
                     <input type="text" name="nome_louvor" value="{{ old('nome_louvor', $vocalista->nome_louvor) }}">
 
-                    <label class="text-indigo-950 m-4" for="nome_versao_louvor">Versão</label>
+                    <label class="text-indigo-950 m-4 dark:text-white text-lg" for="nome_versao_louvor">Versão</label>
                     <input type="text" name="nome_versao_louvor"
                         value="{{ old('nome_louvor_louvor', $vocalista->nome_versao_louvor) }}">
 
-                    <label class="text-indigo-950 m-4" for="tonalidade">Tonalidade</label>
+                    <label class="text-indigo-950 m-4 dark:text-white text-lg" for="tonalidade">Tonalidade</label>
                     <select name="tonalidade" value="{{ old('tonalidade', $vocalista->tonalidade) }}" for="tonalidade"
                         class="form-select">
 

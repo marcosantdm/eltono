@@ -44,18 +44,20 @@
                 class="bg-yellow-500 dark:bg-yellow-700 hover:bg-yellow-600 dark:hover:bg-yellow-800 text-white font-bold py-2 px-4 rounded mr-2 text-base">Limpar
                 Filtro</a>
 
-            <td class="border  border-slate-950 px-4 py-2 text-gray-900 dark:text-white ">
+            <td class="border  border-slate-950 px-4 py-2 text-gray-900 dark:text-gray-900 ">
 
                 <div class="flex-col items-center justify-center overflow-hidden py-2 px-4 z-50">
                     <div>
-                        <label for="tw-modal {{ $vocalista->id }}"
+                        <label for="tw-modal {{ isset($vocalista) ? $vocalista->id : '' }}"
                             class="cursor-pointer hover:underline rounded bg-green-500 px-8 py-4 text-white active:bg-slate-400">
                             LISTA DO DIA
                         </label>
+
                     </div>
-                    <input type="checkbox" id="tw-modal {{ $vocalista->id }}"
+
+                    <input type="checkbox" id="tw-modal {{ isset($vocalista) ? $vocalista->id : '' }}"
                         class="peer fixed appearance-none opacity-0">
-                    <label for="tw-modal {{ $vocalista->id }}"
+                    <label for="tw-modal {{ isset($vocalista) ? $vocalista->id : '' }}"
                         class="pointer-events-none invisible absolute inset-0 flex cursor-pointer items-center justify-center overflow-hidden overscroll-contain bg-slate-700/30 opacity-0 transition-all duration-200 ease-in-out peer-checked:pointer-events-auto peer-checked:visible peer-checked:opacity-100 peer-checked:[&>*]:translate-y-0 peer-checked:[&>*]:scale-100">
 
                         <!-- Lista do dia -->
@@ -66,14 +68,20 @@
                                         <th class="px-4 text-center">Vocalista</th>
                                         <th class="px-4 text-center">Louvor</th>
                                         <th class="px-4 text-center">Tonalidade</th>
+                                        
                                     </thead>
                             </table>
+
                             </tbody>
                         </div>
 
                     </label>
                 </div>
+
             </td>
+
+
+
 
         </form>
 
@@ -85,10 +93,10 @@
                 <table class="table-auto w-full">
 
                     <thead>
-                        <th class="px-4 text-center">Vocalista</th>
-                        <th class="px-4 text-center">Louvor</th>
-                        <th class="px-4 text-center">Tonalidade</th>
-                        <th class="px-4 text-center">Versão</th>
+                        <th class="text-white px-4 text-center text-xl">Vocalista</th>
+                        <th class="text-white px-4 text-center text-xl">Louvor</th>
+                        <th class="text-white px-4 text-center text-xl">Tonalidade</th>
+                        <th class="text-white px-4 text-center text-xl">Versão</th>
                     </thead>
 
 
@@ -130,7 +138,7 @@
 
                             @if (auth()->user()->role === 'admin')
                                 <!-- Se o usuário for um administrador, exibir as opções de CRUD -->
-                                <td class="border px-4 py-2 ">
+                                <td class="border border-slate-950 px-4 py-2 ">
                                     <div class="flex justify-center">
                                         <a href="{{ route('vocalistas.edit', $vocalista->id) }}"
                                             class="bg-blue-500 dark:bg-blue-700 hover:bg-blue-600 dark:hover:bg-blue-800 text-white font-bold py-2 px-4 rounded mr-2">Editar</a>
@@ -215,9 +223,9 @@
                     cellTonalidade.textContent = tonalidade;
 
                     // Adiciona classes às células
-                    cellVocalista.classList.add('border', 'border-slate-950', 'px-4', 'py-2', 'text-gray-900', 'dark:text-white');
-                    cellLouvor.classList.add('border', 'border-slate-950', 'px-4', 'py-2', 'text-gray-900', 'dark:text-white');
-                    cellTonalidade.classList.add('border', 'border-slate-950', 'px-4', 'py-2', 'text-gray-900', 'dark:text-white');
+                    cellVocalista.classList.add('border', 'border-slate-950', 'px-4', 'py-2', 'text-gray-900', 'dark:text-black');
+                    cellLouvor.classList.add('border', 'border-slate-950', 'px-4', 'py-2', 'text-gray-900', 'dark:text-black');
+                    cellTonalidade.classList.add('border', 'border-slate-950', 'px-4', 'py-2', 'text-gray-900', 'dark:text-black');
 
                     // Botão de Remover
                     let botaoRemover = document.createElement('button');
@@ -280,9 +288,9 @@
                             removerMusicaListaDoDia(novaLinha);
                         });
 
-                        cellVocalista.classList.add('border', 'border-slate-950', 'px-4', 'py-2', 'text-gray-900', 'dark:text-white');
-                        cellLouvor.classList.add('border', 'border-slate-950', 'px-4', 'py-2', 'text-gray-900', 'dark:text-white');
-                        cellTonalidade.classList.add('border', 'border-slate-950', 'px-4', 'py-2', 'text-gray-900', 'dark:text-white');
+                        cellVocalista.classList.add('border', 'border-slate-950', 'px-4', 'py-2', 'text-gray-900', 'dark:text-black');
+                        cellLouvor.classList.add('border', 'border-slate-950', 'px-4', 'py-2', 'text-gray-900', 'dark:text-black');
+                        cellTonalidade.classList.add('border', 'border-slate-950', 'px-4', 'py-2', 'text-gray-900', 'dark:text-black');
                     });
                 }
             }

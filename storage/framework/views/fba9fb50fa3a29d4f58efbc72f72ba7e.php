@@ -54,4 +54,4 @@
         </div>
     </div>
 </div>
-<?php /**PATH C:\Users\esley.santana\Desktop\eltono\resources\views/components/banner.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/leal/code/eltono/resources/views/components/banner.blade.php ENDPATH**/ ?>

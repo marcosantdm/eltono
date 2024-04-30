@@ -2,4 +2,4 @@
     <?php echo e($slot); ?>
 
 </button>
-<?php /**PATH C:\Users\esley.santana\Desktop\eltono\resources\views/components/button.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/leal/code/eltono/resources/views/components/button.blade.php ENDPATH**/ ?>
