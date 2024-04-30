@@ -6,10 +6,13 @@ use App\Models\Vocalista;
 
 use Illuminate\Http\Request;
 
+
+
 class PdfController extends Controller
 {
     public function gerarPdf()
     {
+
 
         $dados = Vocalista::orderByDesc('created_at')->get();
 

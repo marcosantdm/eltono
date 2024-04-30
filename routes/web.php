@@ -19,6 +19,7 @@ Route::middleware([
     Route::resource('vocalistas', VocalistaController::class);
 
     Route::get('gerar-pdf', [PdfController::class, 'gerarPdf'])->name('gerar-pdf');
+    
 
 });
 

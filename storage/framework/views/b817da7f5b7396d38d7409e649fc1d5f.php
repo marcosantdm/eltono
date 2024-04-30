@@ -55,14 +55,17 @@
 
             <td class="border  border-slate-950 px-4 py-2 text-gray-900 dark:text-gray-900 ">
 
+
                 <div class="flex-col items-center justify-center overflow-hidden py-2 px-4 z-50">
                     <div>
                         <label for="tw-modal <?php echo e(isset($vocalista) ? $vocalista->id : ''); ?>"
-                            class="cursor-pointer hover:underline rounded bg-green-500 px-8 py-4 text-white active:bg-slate-400">
+                            class="cursor-pointer hover:underline rounded bg-green-700 px-8 py-4 text-white active:bg-slate-400 ">
                             LISTA DO DIA
                         </label>
 
                     </div>
+
+
 
                     <input type="checkbox" id="tw-modal <?php echo e(isset($vocalista) ? $vocalista->id : ''); ?>"
                         class="peer fixed appearance-none opacity-0">
@@ -77,7 +80,6 @@
                                         <th class="px-4 text-center">Vocalista</th>
                                         <th class="px-4 text-center">Louvor</th>
                                         <th class="px-4 text-center">Tonalidade</th>
-                                        
                                     </thead>
                             </table>
 
@@ -88,9 +90,9 @@
                 </div>
 
             </td>
-
-
-
+            <a href="<?php echo e('gerar-pdf'); ?>" class="bg-yellow-300 dark:bg-yellow-700 hover:bg-yellow-600 dark:hover:bg-yellow-800 text-white font-bold py-2 px-4 rounded">
+                GERAR PDF
+            </a>
 
         </form>
 
@@ -131,7 +133,7 @@
                                 <div class=" flex-col items-center justify-center overflow-hidden py-2 px-4 z-50">
                                     <div>
                                         <label for="tw-modal <?php echo e($vocalista->id); ?>"
-                                            class="cursor-pointer hover:underline rounded bg-green-500 px-8 py-4 text-white active:bg-slate-400">OUÇA
+                                            class="cursor-pointer hover:underline  bg-green-700 px-8 py-4 rounded text-white active:bg-slate-400">OUÇA
                                             AGORA</label>
                                     </div>
                                     <input type="checkbox" id="tw-modal <?php echo e($vocalista->id); ?>"
@@ -352,6 +354,8 @@
             // Verificar se as músicas já estão na lista ao carregar a página
             atualizarBotoesAdicionar();
         });
+
+
     </script>
 
 

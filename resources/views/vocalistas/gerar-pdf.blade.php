@@ -30,7 +30,6 @@
     <div style="text-align: center; font-size: 10px; margin-top: 20px; color: #c2c2c2;">
         <p>Todos os direitos reservados. &copy; {{ date('Y') }} <a href="https://www.linkedin.com/in/esleyleal/"  style="color: inherit; text-decoration: underline;" target="_blank">Esley Leal Santana</a>.</p>
         <p>Este projeto, desenvolvido em Laravel, visa facilitar a organização de ensaios e planejamentos na igreja, permitindo o cadastro de vocalistas, músicas, tonalidades e links de vídeos.</p>
-        <p>O projeto também serve como uma aplicação prática dos conhecimentos adquiridos em Laravel, contribuindo para o aprimoramento das habilidades de desenvolvimento web.</p>
     </div>
 
 </body>
