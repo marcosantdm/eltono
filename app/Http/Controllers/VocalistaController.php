@@ -116,4 +116,6 @@ class VocalistaController extends Controller
         $vocalista->delete();
         return redirect()->route('vocalistas.index');
     }
+
+    // TODO: Criar Requests e adicionar try catch e iniciar transações
 }
