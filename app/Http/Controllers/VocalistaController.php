@@ -11,22 +11,24 @@ class VocalistaController extends Controller
     public function index(Request $request)
     {
 
-        $query = Vocalista::query();
+        $vocalistas = Vocalista::query();
 
-        if ($request->filled('nome_vocalista')) {
-            $query->where('nome_vocalista', $request->input('nome_vocalista'));
+        if ($request->has('nome_vocalista')) {
+            $vocalistas->where('nome_vocalista', $request->nome_vocalista);
         }
 
-        if ($request->filled('nome_louvor')) {
-            $query->where('nome_louvor', $request->input('nome_louvor'));
+        if ($request->has('nome_louvor')) {
+            $vocalistas->where('nome_louvor', $request->nome_louvor);
         }
 
-        $vocalistasQuery = Vocalista::select('nome_vocalista')->distinct('nome_vocalista')->get();
-        $louvoresQuery = Vocalista::select('nome_louvor')->distinct('nome_louvor')->get();
+        $vocalistas = $vocalistas->get();
 
-        $vocalistas = $query->select('id', 'nome_vocalista', 'nome_louvor', 'tonalidade', 'nome_versao_louvor')->get();
+        $filters = Vocalista::all()
+            ->unique(function ($item) {
+                return $item->nome_vocalista . $item->nome_louvor;
+            });
 
-        return view('vocalistas.index', compact('vocalistas', 'vocalistasQuery', 'louvoresQuery'));
+        return view('vocalistas.index', compact('vocalistas', 'filters'));
     }
 
 
