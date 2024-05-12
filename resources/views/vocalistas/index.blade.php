@@ -5,7 +5,7 @@
         @if (Auth::user()->isAdmin())
             <a href="{{ route('vocalistas.create') }}"
                 class="px-4 py-2 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-                        CADASTRAR NOVO LOUVOR
+                CADASTRAR NOVO LOUVOR
             </a>
         @else
         @endif
@@ -21,16 +21,16 @@
             <select name="nome_vocalista" id="vocalista"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-48">
                 <option selected disabled>Filtrar Por: Vocalista</option>
-                @foreach ($filters as $filter)
-                    <option value="{{ $filter->nome_vocalista }}">{{ $filter->nome_vocalista }}</option>
+                @foreach ($vocalistaFilters as $vocalista)
+                    <option value="{{ $vocalista->nome_vocalista }}">{{ $vocalista->nome_vocalista }}</option>
                 @endforeach
             </select>
 
             <select name="nome_louvor" id="louvor"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-48">
                 <option selected disabled>Filtrar Por: Louvor</option>
-                @foreach ($filters as $filter)
-                    <option value="{{ $filter->nome_louvor }}">{{ $filter->nome_louvor }}</option>
+                @foreach ($louvoresFilters as $louvor)
+                    <option value="{{ $louvor->nome_louvor }}">{{ $louvor->nome_louvor }}</option>
                 @endforeach
             </select>
 
@@ -47,7 +47,7 @@
 
                 <div class="flex-col items-center justify-center overflow-hidden py-2 px-4 z-50">
                     <div>
-                        <label for="tw-modal {{ isset($vocalista) ? $vocalista->id : '' }}"
+                        <label
                             class="cursor-pointer hover:underline rounded bg-green-700 px-8 py-4 text-white active:bg-slate-400 ">
                             LISTA DO DIA
                         </label>
@@ -56,9 +56,9 @@
 
 
 
-                    <input type="checkbox" id="tw-modal {{ isset($vocalista) ? $vocalista->id : '' }}"
+                    <input type="checkbox" id="tw-modal"
                         class="peer fixed appearance-none opacity-0">
-                    <label for="tw-modal {{ isset($vocalista) ? $vocalista->id : '' }}"
+                    <label
                         class="pointer-events-none invisible absolute inset-0 flex cursor-pointer items-center justify-center overflow-hidden overscroll-contain bg-slate-700/30 opacity-0 transition-all duration-200 ease-in-out peer-checked:pointer-events-auto peer-checked:visible peer-checked:opacity-100 peer-checked:[&>*]:translate-y-0 peer-checked:[&>*]:scale-100">
 
                         <!-- Lista do dia -->
@@ -101,35 +101,35 @@
                     </thead>
 
 
-                    @foreach ($vocalistas as $vocalista)
+                    @foreach ($louvores as $louvor)
                         <tr>
 
 
                             <td class="border border-slate-950 px-4 py-2 text-gray-900 dark:text-white text-center">
-                                {{ $vocalista->nome_vocalista }}
+                                {{ $louvor->vocalista->nome_vocalista }}
                             </td>
                             <td class="border border-slate-950 px-4 py-2 text-gray-900 dark:text-white text-center">
-                                {{ $vocalista->nome_louvor }}
+                                {{ $louvor->nome_louvor }}
                             </td>
                             <td class="border  border-slate-950 px-4 py-2 text-gray-900 dark:text-white text-center">
-                                {{ $vocalista->tonalidade }}
+                                {{ $louvor->tonalidade }}
                             </td>
 
                             <td class="border  border-slate-950 px-4 py-2 text-gray-900 dark:text-white ">
 
                                 <div class=" flex-col items-center justify-center overflow-hidden py-2 px-4 z-50">
                                     <div>
-                                        <label for="tw-modal {{ $vocalista->id }}"
+                                        <label for="tw-modal {{ $louvor->id }}"
                                             class="cursor-pointer hover:underline  bg-green-700 px-8 py-4 rounded text-white active:bg-slate-400">OUÇA
                                             AGORA</label>
                                     </div>
-                                    <input type="checkbox" id="tw-modal {{ $vocalista->id }}"
+                                    <input type="checkbox" id="tw-modal {{ $louvor->id }}"
                                         class="peer fixed appearance-none opacity-0">
-                                    <label for="tw-modal {{ $vocalista->id }}"
+                                    <label for="tw-modal {{ $louvor->id }}"
                                         class="pointer-events-none invisible absolute inset-0 flex cursor-pointer items-center justify-center overflow-hidden overscroll-contain bg-slate-700/30 opacity-0 transition-all duration-200 ease-in-out peer-checked:pointer-events-auto peer-checked:visible peer-checked:opacity-100 peer-checked:[&>*]:translate-y-0 peer-checked:[&>*]:scale-100">
 
                                         <div>
-                                            <iframe src="{{ $vocalista->nome_versao_louvor }}"
+                                            <iframe src="{{ $louvor->nome_versao_louvor }}"
                                                 frameborder="0"></iframe>
                                         </div>
 
@@ -141,20 +141,20 @@
                                 <!-- Se o usuário for um administrador, exibir as opções de CRUD -->
                                 <td class="border border-slate-950 px-4 py-2 ">
                                     <div class="flex justify-center">
-                                        <a href="{{ route('vocalistas.edit', $vocalista->id) }}"
+                                        <a href="{{ route('vocalistas.edit', $louvor->id) }}"
                                             class="bg-blue-500 dark:bg-blue-700 hover:bg-blue-600 dark:hover:bg-blue-800 text-white font-bold py-2 px-4 rounded mr-2">Editar</a>
 
                                         <button
                                             class="bg-green-500 dark:bg-green-700 hover:bg-green-600 dark:hover:bg-green-800 text-white font-bold py-2 px-4 rounded mr-2 text-base btn-add-lista"
-                                            data-id="{{ $vocalista->id }}"
-                                            nome_vocalista="{{ $vocalista->nome_vocalista }}"
-                                            nome_louvor="{{ $vocalista->nome_louvor }}"
-                                            nome_versao_louvor="{{ $vocalista->nome_versao_louvor }}"
-                                            tonalidade="{{ $vocalista->tonalidade }}">
+                                            data-id="{{ $louvor->id }}"
+                                            nome_vocalista="{{ $louvor->vocalista->nome_vocalista }}"
+                                            nome_louvor="{{ $louvor->nome_louvor }}"
+                                            nome_versao_louvor="{{ $louvor->nome_versao_louvor }}"
+                                            tonalidade="{{ $louvor->tonalidade }}">
                                             Add a lista
                                         </button>
 
-                                        <form action="{{ route('vocalistas.destroy', $vocalista->id) }}" method="POST"
+                                        <form action="{{ route('vocalistas.destroy', $louvor->id) }}" method="POST"
                                             onsubmit="return confirm('Tem certeza que deseja excluir ?')">
                                             @csrf
                                             @method('DELETE')
@@ -168,11 +168,11 @@
                                 <td class="border border-slate-950 py-2 px-4">
                                     <button
                                         class="bg-green-500 dark:bg-green-700 hover:bg-green-600 dark:hover:bg-green-800 text-white font-bold py-2 px-4 rounded mr-2 text-base btn-add-lista"
-                                        data-id="{{ $vocalista->id }}"
-                                        nome_vocalista="{{ $vocalista->nome_vocalista }}"
-                                        nome_louvor="{{ $vocalista->nome_louvor }}"
-                                        nome_versao_louvor="{{ $vocalista->nome_versao_louvor }}"
-                                        tonalidade="{{ $vocalista->tonalidade }}">
+                                        data-id="{{ $louvor->id }}"
+                                        nome_vocalista="{{ $louvor->vocalista->nome_vocalista }}"
+                                        nome_louvor="{{ $louvor->nome_louvor }}"
+                                        nome_versao_louvor="{{ $louvor->nome_versao_louvor }}"
+                                        tonalidade="{{ $louvor->tonalidade }}">
                                         Add a lista
                                     </button>
                                 </td>

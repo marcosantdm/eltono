@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Louvor;
 use Illuminate\Http\Request;
 use App\Models\Vocalista;
 
@@ -11,24 +12,24 @@ class VocalistaController extends Controller
     public function index(Request $request)
     {
 
-        $vocalistas = Vocalista::query();
+        $louvores = Louvor::with('vocalista');
 
         if ($request->has('nome_vocalista')) {
-            $vocalistas->where('nome_vocalista', $request->nome_vocalista);
+            $louvores->whereHas('vocalistas', function ($item) use ($request) {
+                $item->where('nome_vocalista', $request->nome_vocalista);
+            });
         }
 
         if ($request->has('nome_louvor')) {
-            $vocalistas->where('nome_louvor', $request->nome_louvor);
+            $louvores->where('nome_louvor', $request->nome_louvor);
         }
 
-        $vocalistas = $vocalistas->get();
+        $louvores = $louvores->get();
 
-        $filters = Vocalista::all()
-            ->unique(function ($item) {
-                return $item->nome_vocalista . $item->nome_louvor;
-            });
+        $vocalistaFilters = Vocalista::all()->unique();
+        $louvoresFilters = Vocalista::all()->unique();
 
-        return view('vocalistas.index', compact('vocalistas', 'filters'));
+        return view('vocalistas.index', compact('louvores', 'vocalistaFilters', 'louvoresFilters'));
     }
 
 
@@ -63,7 +64,20 @@ class VocalistaController extends Controller
 
         $request->validate($regras, $feedback);
 
-        Vocalista::create($request->all());
+        $vocalista = Vocalista::where('nome_vocalista', $request->nome_vocalista)->first();
+        if (!$vocalista) {
+            $vocalista = Vocalista::create([
+                'nome_vocalista' => $request->nome_vocalista
+            ]);
+        }
+
+        Louvor::create([
+            'nome_louvor' => $request->nome_louvor,
+            'nome_versao_louvor' => $request->nome_versao_louvor,
+            'tonalidade' => $request->tonalidade,
+            'vocalista_id' => $vocalista->id
+        ]);
+
         return redirect()->route('vocalistas.index');
     }
 
@@ -76,9 +90,9 @@ class VocalistaController extends Controller
 
     public function edit(string $id)
     {
-        $vocalista  = Vocalista::findOrFail($id);
+        $louvor  = Louvor::with('vocalista')->find($id);
 
-        return view('vocalistas.edit', compact('vocalista'));
+        return view('vocalistas.edit', compact('louvor'));
     }
 
 
@@ -102,10 +116,19 @@ class VocalistaController extends Controller
 
         $request->validate($regras, $feedback);
 
-        $vocalista  = Vocalista::findOrFail($id);
+        $louvor = Louvor::findOrFail($id);
+        $vocalista  = Vocalista::findOrFail($louvor->vocalista->id);
 
+        if ($vocalista->nome_vocalista != $request->nome_vocalista) {
+            $vocalista->update(['nome_vocalista' => $request->nome_vocalista]);
+        }
 
-        $vocalista->update($request->all());
+        $louvor->update([
+            'nome_louvor' => $request->nome_louvor,
+            'nome_versao_louvor' => $request->nome_versao_louvor,
+            'tonalidade' => $request->tonalidade
+        ]);
+
         return redirect()->route('vocalistas.index');
     }
 

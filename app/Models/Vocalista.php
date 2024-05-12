@@ -9,5 +9,12 @@ class Vocalista extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome_vocalista','nome_louvor', 'nome_versao_louvor', 'tonalidade'];
+    protected $fillable = [
+        'nome_vocalista',
+    ];
+
+    public function louvores()
+    {
+        return $this->hasMany(Louvor::class, 'vocalista_id', 'id');
+    }
 }

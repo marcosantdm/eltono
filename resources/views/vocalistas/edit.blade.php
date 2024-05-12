@@ -14,85 +14,85 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
 
-                <form action="{{ route('vocalistas.update', $vocalista->id) }}" method="POST" class="flex flex-col p-36">
+                <form action="{{ route('vocalistas.update', $louvor->id) }}" method="POST" class="flex flex-col p-36">
                     @csrf
                     @method('PUT')
 
                     <label class="text-indigo-950 m-4 dark:text-white text-lg" for="nome_vocalista">Vocalista</label>
                     <input type="text" name="nome_vocalista"
-                        value="{{ old('nome_vocalista', $vocalista->nome_vocalista) }}">
+                        value="{{ old('nome_vocalista', $louvor->vocalista->nome_vocalista) }}">
 
                     <label class="text-indigo-950 m-4 dark:text-white text-lg" for="nome_louvor">Louvor</label>
-                    <input type="text" name="nome_louvor" value="{{ old('nome_louvor', $vocalista->nome_louvor) }}">
+                    <input type="text" name="nome_louvor" value="{{ old('nome_louvor', $louvor->nome_louvor) }}">
 
                     <label class="text-indigo-950 m-4 dark:text-white text-lg" for="nome_versao_louvor">Versão</label>
                     <input type="text" name="nome_versao_louvor"
-                        value="{{ old('nome_louvor_louvor', $vocalista->nome_versao_louvor) }}">
+                        value="{{ old('nome_louvor_louvor', $louvor->nome_versao_louvor) }}">
 
                     <label class="text-indigo-950 m-4 dark:text-white text-lg" for="tonalidade">Tonalidade</label>
-                    <select name="tonalidade" value="{{ old('tonalidade', $vocalista->tonalidade) }}" for="tonalidade"
+                    <select name="tonalidade" value="{{ old('tonalidade', $louvor->tonalidade) }}" for="tonalidade"
                         class="form-select">
 
-                        <option value="C" {{ old('tonalidade', $vocalista->tonalidade) == 'C' ? 'selected' : '' }}>
+                        <option value="C" {{ old('tonalidade', $louvor->tonalidade) == 'C' ? 'selected' : '' }}>
                             C</option>
                         <option value="Cm"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Cm' ? 'selected' : '' }}>Cm</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Cm' ? 'selected' : '' }}>Cm</option>
                         <option value="C#"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'C#' ? 'selected' : '' }}>C#</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'C#' ? 'selected' : '' }}>C#</option>
                         <option value="C#m"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'C#m' ? 'selected' : '' }}>C#m</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'C#m' ? 'selected' : '' }}>C#m</option>
 
                         <option value="Db"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Db' ? 'selected' : '' }}>Db</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Db' ? 'selected' : '' }}>Db</option>
                         <option value="D"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'D' ? 'selected' : '' }}>D</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'D' ? 'selected' : '' }}>D</option>
                         <option value="Dm"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Dm' ? 'selected' : '' }}>Dm</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Dm' ? 'selected' : '' }}>Dm</option>
                         <option value="D#m"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'D#m' ? 'selected' : '' }}>D#m</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'D#m' ? 'selected' : '' }}>D#m</option>
 
                         <option value="Ebm"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Ebm' ? 'selected' : '' }}>Ebm</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Ebm' ? 'selected' : '' }}>Ebm</option>
                         <option value="Eb"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Eb' ? 'selected' : '' }}>Eb</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Eb' ? 'selected' : '' }}>Eb</option>
                         <option value="E"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'E' ? 'selected' : '' }}>E</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'E' ? 'selected' : '' }}>E</option>
                         <option value="Em"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Ebm' ? 'selected' : '' }}>Em</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Ebm' ? 'selected' : '' }}>Em</option>
 
                         <option value="F"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'F' ? 'selected' : '' }}>F</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'F' ? 'selected' : '' }}>F</option>
                         <option value="Fm"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Fm' ? 'selected' : '' }}>Fm</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Fm' ? 'selected' : '' }}>Fm</option>
                         <option value="F#"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'F#' ? 'selected' : '' }}>F#</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'F#' ? 'selected' : '' }}>F#</option>
 
                         <option value="G"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'G' ? 'selected' : '' }}>G</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'G' ? 'selected' : '' }}>G</option>
                         <option value="Gm"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Gm' ? 'selected' : '' }}>Gm</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Gm' ? 'selected' : '' }}>Gm</option>
                         <option value="G#"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'G#' ? 'selected' : '' }}>G#</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'G#' ? 'selected' : '' }}>G#</option>
                         <option value="G#m"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'G#m' ? 'selected' : '' }}>G#m</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'G#m' ? 'selected' : '' }}>G#m</option>
 
                         <option value="Ab"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Ab' ? 'selected' : '' }}>Ab</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Ab' ? 'selected' : '' }}>Ab</option>
                         <option value="A"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'A' ? 'selected' : '' }}>A</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'A' ? 'selected' : '' }}>A</option>
                         <option value="Am"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Am' ? 'selected' : '' }}>Am</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Am' ? 'selected' : '' }}>Am</option>
                         <option value="A#m"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'A#m' ? 'selected' : '' }}>A#m</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'A#m' ? 'selected' : '' }}>A#m</option>
 
                         <option value="Bbm"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Bbm' ? 'selected' : '' }}>Bbm</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Bbm' ? 'selected' : '' }}>Bbm</option>
                         <option value="B"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'B' ? 'selected' : '' }}>B</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'B' ? 'selected' : '' }}>B</option>
                         <option value="Bm"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Bm' ? 'selected' : '' }}>Bm</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Bm' ? 'selected' : '' }}>Bm</option>
                         <option value="Bb"
-                            {{ old('tonalidade', $vocalista->tonalidade) == 'Bb' ? 'selected' : '' }}>Bb</option>
+                            {{ old('tonalidade', $louvor->tonalidade) == 'Bb' ? 'selected' : '' }}>Bb</option>
 
 
 
